@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Toons";
+}
+
+<div class="jumbotron">
+    <h1>Toon Data Examples</h1>
+    <a href="~/data/toons">View Raw Dataset</a>
+    <p class="lead">CORS support is enabled for this dataset from any domain, so you don't have to worry about your ajax call coming back with an error</p>
+    <p>A simple example webpage which illustrates the usage of this JSON dataset:</p>
+    <p>
+        <pre>
+@Html.Raw("&lt;html xmlns='http://www.w3.org/1999/xhtml'&gt;")
+@Html.Raw("&lt;head&gt;")
+@Html.Raw("    &lt;title&gt;&lt;title&gt;")
+@Html.Raw("    &lt;link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css' /&gt;")
+@Html.Raw("    &lt;script src='http://code.jquery.com/jquery-2.1.3.js'&gt;&lt;/script&gt;")
+@Html.Raw("    &lt;script&gt;")
+@Html.Raw("        $(function () {")
+@Html.Raw("            var url = 'http://centriqdata.cloudapp.net/data/toons';")
+@Html.Raw("            $.getJSON(url, function (data) {")
+@Html.Raw("                for (var i = 0; i < data.length; i++) {")
+@Html.Raw("                    $('#datarows').append('&lt;tr&gt;' +")
+@Html.Raw("                            '&lt;td&gt;' + data[i].Studio + '&lt;/td&gt;' +")
+@Html.Raw("                            '&lt;td&gt;' + data[i].Show + '&lt;/td&gt;' +")
+@Html.Raw("                            '&lt;td&gt;' + data[i].Character + '&lt;/td&gt;&lt;/tr&gt;');")
+@Html.Raw("                }")
+@Html.Raw("            });")
+@Html.Raw("        });")
+@Html.Raw("    &lt;/script&gt;")
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table class="table"&gt;
+        &lt;thead&gt;&lt;tr&gt;
+            &lt;th&gt;Studio&lt;/th&gt;&lt;th&gt;Show&lt;/th&gt;
+            &lt;th&gt;Character&lt;/th&gt;
+        &lt;/tr&gt;&lt;/thead&gt;
+        &lt;tbody id="datarows"&gt;&lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    </p>
+    <p>The output would look something like this</p>
+    <div class="table-responsive">
+        <iframe src="~/ToonSample.html"  height="300"></iframe>
+    </div>
+    <p>In addition to the method shown here, you can also request the data as a paged set in two different ways:</p>
+    <p><em>var url = 'http://centriqdata.cloudapp.net/data/toons/' + pageNumber;</em></p>
+    <p>This url will use a default page size of 25 and grab the appropriate records according to what page you are requesting</p>
+    <p>However, you can also specify an extra parameter and control the page size as well</p>
+    <p><em>var url = 'http://centriqdata.cloudapp.net/data/toons/' + pageNumber + "/" + pageSize;</em></p>
+</div>
+
+

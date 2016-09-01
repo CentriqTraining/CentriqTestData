@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        body {
+            padding: 0px 6px 0px 6px;
+        }
+    </style>
+    <script>
+        $(function () {
+            var url = "http://centriqdata.cloudapp.net/data/toons";
+            $.getJSON(url, function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    $('#datarows').append("<tr>" +
+                                          "<td>" + data[i].Studio + "</td>" +
+                                          "<td>" + data[i].Show + "</td>" +
+                                          "<td>" + data[i].Character + "</td></tr>");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Studio</th>
+                    <th>Show</th>
+                    <th>Character</th>
+                </tr>
+            </thead>
+            <tbody id="datarows"></tbody>
+        </table>
+    </div>
+</body>
+</html>
