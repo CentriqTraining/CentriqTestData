@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Centriq Test Data</h1>
+    <p class="lead">Example test data for use in html demos.  Data is returned in json format for easy integration into whatever you are demo-ing</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2>Chuck</h2>
+            </div>
+            <div class="panel-body">
+                <p>
+                    The greatest nerd show ever to appear on TV, Chuck.  JSON representation of everyone who worked at the Buymore.
+                    Viva BuyMoria!
+                </p>
+                <p>Retrivable as a whole, our as a single record by ID</p>
+                <pre>
+public class Employee
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Position { get; set; }
+    public decimal TerminationDate { get; set; }
+}
+</pre>
+                <div class="panel-footer">
+                    <p><a class="btn btn-primary" href="@Url.Action("Chuck", "Samples")">Usage Examples &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2>Cartoon Database</h2>
+            </div>
+            <div class="panel-body">
+                <p>JSON represenation of all the cartoon characters going back years that I could collect.</p>
+                <p>Data is retrievable as a whole or as a paged list</p>
+                <pre>
+public class Employee
+{
+    public int Id { get; set; }
+    public string Studio { get; set; }
+    public string Show { get; set; }
+    public string Character { get; set; }
+}
+</pre>
+                <br />
+                <div class="panel-footer">
+                    <p><a class="btn btn-primary" href="@Url.Action("Toons", "Samples")">Usage Examples &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2>Scooby Doo</h2>
+            </div>
+            <div class="panel-body">
+                <p>Simple JSON representation of all the employees of Mystery Inc. Scooby. Dooby. Doo!</p>
+                <p>Data is retrievable as a whole (6) records or by issuing a search term</p>
+                <pre>
+public class Employee
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Position { get; set; }
+    public decimal TerminationDate { get; set; }
+}
+</pre>
+                <div class="panel-footer">
+                    <p><a class="btn btn-primary" href="@Url.Action("Scooby", "Samples")">Usage Examples &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

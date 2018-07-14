@@ -169,7 +169,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BuyMoria.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\ToonData.cs">
@@ -220,6 +219,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Toons1.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\centriqdata - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

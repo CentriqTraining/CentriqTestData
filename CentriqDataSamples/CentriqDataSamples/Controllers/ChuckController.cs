@@ -15,17 +15,44 @@ namespace CentriqDataSamples.Controllers
 {
     public class ChuckController : ApiController
     {
-        private BuyMoria db;
+        private List<Employee> _Emps;
         public ChuckController()
         {
-            db = new BuyMoria();
-            db.Configuration.ProxyCreationEnabled = false;
+            _Emps = new List<Models.Employee>();
+            _Emps.AddRange(new Employee[] {
+            new Employee() { FirstName = "Michael", LastName = "Tucker", Salary = 18.00M, Position = "Manager" },
+            new Employee() { FirstName = "Morgan", LastName = "Grimes", Salary = 12.00M, Position = "Asst. Manager" },
+            new Employee() { FirstName = "Emmett", LastName = "Milbarge", Salary = 14.00M, Position = "Asst. Manager", TerminationDate = DateTime.Parse("1/31/2012") },
+            new Employee() { FirstName = "Harry", LastName = "Tang", Salary = 12.00M, Position = "Asst. Manager", TerminationDate = DateTime.Parse("1/31/2011") },
+            new Employee() { FirstName = "Diane", LastName = "Beckman", Salary = 22.00M, Position = "Manager" },
+            new Employee() { FirstName = "John", LastName = "Casey", Salary = 10.00M, Position = "Green Shirt" },
+            new Employee() { FirstName = "Fernando", Salary = 9.00M, Position = "Green Shirt" },
+            new Employee() { FirstName = "Bunny", Salary = 9.00M, Position = "Green Shirt" },
+            new Employee() { FirstName = "Chuck", LastName = "Bartowski", Salary = 13.00M, Position = "Nerd Herd" },
+            new Employee() { FirstName = "Jeffrey", LastName = "Barnes", Salary = 11.25M, Position = "Nerd Herd, Apple" },
+            new Employee() { FirstName = "Lester", LastName = "Patel", Salary = 11.25M, Position = "Nerd Herd, Apple" },
+            new Employee() { FirstName = "Skip", LastName = "Johnson", Salary = 12.00M, Position = "Nerd Herd" },
+            new Employee() { FirstName = "Anna", LastName = "Wu", Salary = 9.00M, Position = "Nerd Herd", TerminationDate = DateTime.Parse("1/31/2012") },
+            new Employee() { FirstName = "Hannah", LastName = "", Salary = 8.00M, Position = "Nerd Herd", TerminationDate = DateTime.Parse("1/31/2012") },
+            new Employee() { FirstName = "Greta", LastName = "", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2012") },
+            new Employee() { FirstName = "Rick", LastName = "Noble", Salary = 8.00M, Position = "Green Shirt" },
+            new Employee() { FirstName = "Victoria", LastName = "Dunwoody", Salary = 8.00M, Position = "Green Shirt" },
+            new Employee() { FirstName = "Moses", LastName = "Finkelstein", Salary = 180.00M, Position = "Founder" },
+            new Employee() { FirstName = "Porter", LastName = "Bauer", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Marvin", LastName = "Gadsby", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Cecil", LastName = "Goldenberg", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Christina", LastName = "James", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Ruben", LastName = "Mango", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Sal", LastName = "Sawaya", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Skye", LastName = "Stoinitz", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Leticia", LastName = "Williams", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
+            new Employee() { FirstName = "Sarah", LastName = "Yang", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") } });
         }
         // GET: api/Chuck
         [EnableCors("*", "*", "*")]
-        public IQueryable<Employee> GetEmployees()
+        public IEnumerable<Employee> GetEmployees()
         {
-            return db.Employees;
+            return _Emps;
         }
 
         // GET: api/Chuck/5
@@ -33,28 +60,13 @@ namespace CentriqDataSamples.Controllers
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employee employee = _Emps.Find(emp => emp.ID == id);
             if (employee == null)
             {
                 return NotFound();
             }
 
             return Ok(employee);
-        }
-
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool EmployeeExists(int id)
-        {
-            return db.Employees.Count(e => e.ID == id) > 0;
         }
     }
 }

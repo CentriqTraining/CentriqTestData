@@ -11,7 +11,7 @@
     </style>
     <script>
         $(function () {
-            var url = "http://centriqdata.cloudapp.net/data/chuck";
+            var url = "http://centriqdata.azurewebsites.net/data/chuck";
             $.getJSON(url, function (data) {
                 for (var i = 0; i < data.length; i++) {
                     $('#datarows').append("<tr>" +

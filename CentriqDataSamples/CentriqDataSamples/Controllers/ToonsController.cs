@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
@@ -18,15 +19,12 @@ namespace WebRole1.Controllers
         private TrainingDAtaEntities db = new TrainingDAtaEntities();
 
         // GET: api/Toons
-        [EnableCors("*", "*", "*")]
-        public IQueryable<ToonData> GetToonDatas()
+        public IHttpActionResult GetToonDatas()
         {
-            return db.ToonDatas;
+            return Ok( db.ToonDatas.ToList());
         }
 
         // GET: api/Toons/5
-        [ResponseType(typeof(ToonData))]
-        [EnableCors("*", "*", "*")]
         public IHttpActionResult GetToonData(int page, int pageSize=25)
         {
             // paged version of the toons

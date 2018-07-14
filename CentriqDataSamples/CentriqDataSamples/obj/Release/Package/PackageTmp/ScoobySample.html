@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Scooby Samples</title>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        body {
+            padding: 0px 6px 0px 6px;
+        }
+    </style>
+    <script>
+        $(function () {
+            var url = "http://centriqdata.azurewebsites.net/data/scooby";
+            $.getJSON(url, function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    $('#datarows').append("<tr>" +
+                                          "<td>" + data[i].ID + "</td>" +
+                                          "<td>" + data[i].FirstName + "</td>" +
+                                          "<td>" + data[i].LastName + "</td>" +
+                                          "<td>" + data[i].Position + "</td>" +
+                                          "<td>" + data[i].Salary + "</td>" +
+                                          "<td>" + data[i].TerminationDate + "</td></tr>");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="table-responsive">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                    <th>Date Terminated</th>
+                </tr>
+            </thead>
+            <tbody id="datarows"></tbody>
+        </table>
+    </div>
+</body>
+</html>
