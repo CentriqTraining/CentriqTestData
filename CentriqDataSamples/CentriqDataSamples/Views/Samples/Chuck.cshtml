@@ -17,7 +17,7 @@
 @Html.Raw("    &lt;script src='http://code.jquery.com/jquery-2.1.3.js'&gt;&lt;/script&gt;")
 @Html.Raw("    &lt;script&gt;")
 @Html.Raw("        $(function () {")
-@Html.Raw("            var url = 'http://centriqdata.cloudapp.net/data/chuck';")
+@Html.Raw("            var url = 'http://centriqdata.azurewebsites.net/data/chuck';")
 @Html.Raw("            $.getJSON(url, function (data) {")
 @Html.Raw("                for (var i = 0; i < data.length; i++) {")
 @Html.Raw("                    $('#datarows').append('&lt;tr&gt;' +")
@@ -51,14 +51,14 @@
         <iframe src="~/ChuckSample.html" height="300"></iframe>
     </div>
     <p>In addition to the method shown here, you can also query this dataset for a specific record by including another parameter (Id)</p>
-    <p><em>var url = 'http://centriqdata.cloudapp.net/data/chuck?id=' + idToFind;</em></p>
+    <p><em>var url = 'http://centriqdata.azurewebsites.net/data/chuck?id=' + idToFind;</em></p>
     <p>
         Since this returns a single JSON object instead of an array, you'll need to remove the
         for statement in the above code and the index on the data object
     </p>
 <pre>
 @Html.Raw("        $(function () {")
-@Html.Raw("            var url = 'http://centriqdata.cloudapp.net/data/chuck?id=9;")
+@Html.Raw("            var url = 'http://centriqdata.azurewebsites.net/data/chuck?id=9;")
 @Html.Raw("            $.getJSON(url, function (data) {")
 @Html.Raw("                $('#datarows').append('&lt;tr&gt;' +")
 @Html.Raw("                        '&lt;td&gt;' + data.ID + '&lt;/td&gt;' +")

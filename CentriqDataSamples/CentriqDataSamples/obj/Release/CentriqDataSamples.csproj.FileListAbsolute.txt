@@ -25,7 +25,6 @@ E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\Sy
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\System.Web.WebPages.dll
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\System.Web.WebPages.Razor.dll
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\WebGrease.dll
-E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\MonAgentListener.dll
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\EntityFramework.xml
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\EntityFramework.SqlServer.xml
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\Microsoft.Data.Edm.xml
@@ -86,3 +85,5 @@ E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\bin\zh
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\obj\Release\CentriqDataSamples.csprojResolveAssemblyReference.cache
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\obj\Release\WebRole1.dll
 E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\obj\Release\WebRole1.pdb
+E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\obj\Release\CentriqDataSamples.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\CentriqTestData\CentriqDataSamples\CentriqDataSamples\obj\Release\CentriqDataSamples.csproj.CopyComplete
