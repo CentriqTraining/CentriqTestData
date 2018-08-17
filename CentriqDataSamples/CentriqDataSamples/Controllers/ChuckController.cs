@@ -50,9 +50,18 @@ namespace CentriqDataSamples.Controllers
         }
         // GET: api/Chuck
         [EnableCors("*", "*", "*")]
-        public IEnumerable<Employee> GetEmployees()
+        public IHttpActionResult GetEmployees()
         {
-            return _Emps;
+            var chuck = _Emps.Select((e, cnt) => new
+            {
+                ID = cnt + 1,
+                e.FirstName,
+                e.LastName,
+                e.Position,
+                e.Salary,
+                TerminationDate = e.TerminationDate.HasValue ? e.TerminationDate.Value.ToShortDateString() : ""
+            }).ToList();
+            return Ok(new { items=chuck});
         }
 
         // GET: api/Chuck/5

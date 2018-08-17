@@ -43,7 +43,19 @@
     </p>
     <p>The output would look something like this</p>
     <div class="table-responsive">
-        <iframe src="~/ToonSample.html"  height="300"></iframe>
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                    <th>Date Terminated</th>
+                </tr>
+            </thead>
+            <tbody id="datarows"></tbody>
+        </table>
     </div>
     <p>In addition to the method shown here, you can also request the data as a paged set in two different ways:</p>
     <p><em>var url = 'http://centriqdata.azurewebsites.net/data/toons' + pageNumber;</em></p>
@@ -52,4 +64,36 @@
     <p><em>var url = 'http://centriqdata.azurewebsites.net/data/toons' + pageNumber + "/" + pageSize;</em></p>
 </div>
 
+@section viewcss {
+    <style>
+        .table {
+            background-color: white;
+            max-height: 130px !important;
+            overflow: scroll;
+        }
+    </style>
+}
+
+
+@section scripts {
+    <script>
+        $(function () {
+            var url = "http://centriqdata.azurewebsites.net/data/toons";
+            $.getJSON(url, function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    $('#datarows').append(
+                        "<tr>" +
+                        "<td>" + data[i].ID + "</td>" +
+                        "<td>" + data[i].FirstName + "</td>" +
+                        "<td>" + data[i].LastName + "</td>" +
+                        "<td>" + data[i].Position + "</td>" +
+                        "<td>" + data[i].Salary + "</td>" +
+                        "<td>" + data[i].TerminationDate + "</td>" +
+                        "</tr>");
+                }
+            });
+        });
+
+    </script>
+}
 
