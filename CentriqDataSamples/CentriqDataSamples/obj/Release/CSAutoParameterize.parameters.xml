@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="TrainingDAtaEntities-Web.config Connection String" description="TrainingDAtaEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.Toons.csdl|res://*/Models.Toons.ssdl|res://*/Models.Toons.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=eycwy8k7jl.database.windows.net,1433;initial catalog=TrainingDAta;user id=paradigmone;password=Paradigm1;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="E:\\Documents\\GitHub\\CentriqTestData\\CentriqDataSamples\\CentriqDataSamples\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TrainingDAtaEntities']/@connectionString" />
-  </parameter>
-  <parameter name="CentriqDataSamples.Models.TrainingDAtaEntities-Web.config Connection String" description="CentriqDataSamples.Models.TrainingDAtaEntities Connection String used in web.config by the application to access the database." defaultValue="CentriqDataSamples.Models.TrainingDAtaEntities_ConnectionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="E:\\Documents\\GitHub\\CentriqTestData\\CentriqDataSamples\\CentriqDataSamples\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CentriqDataSamples.Models.TrainingDAtaEntities']/@connectionString" />
-  </parameter>
-  <parameter name="WebRole1.Models.TrainingDAtaEntities-Web.config Connection String" description="WebRole1.Models.TrainingDAtaEntities Connection String used in web.config by the application to access the database." defaultValue="WebRole1.Models.TrainingDAtaEntities_ConnectionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="E:\\Documents\\GitHub\\CentriqTestData\\CentriqDataSamples\\CentriqDataSamples\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebRole1.Models.TrainingDAtaEntities']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="e:\\Documents\\GitHub\\CentriqTestData\\CentriqDataSamples\\CentriqDataSamples\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TrainingDAtaEntities']/@connectionString" />
   </parameter>
 </parameters>

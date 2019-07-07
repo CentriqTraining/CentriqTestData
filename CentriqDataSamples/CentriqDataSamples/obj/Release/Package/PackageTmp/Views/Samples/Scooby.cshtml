@@ -23,10 +23,7 @@
 @Html.Raw("                    $('#datarows').append('&lt;tr&gt;' +")
 @Html.Raw("                            '&lt;td&gt;' + data[i].ID + '&lt;/td&gt;' +")
 @Html.Raw("                            '&lt;td&gt;' + data[i].FirstName + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data[i].LastName + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data[i].Position + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data[i].Salary + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data[i].TerminationDate + '&lt;/td&gt;&lt;/tr&gt;');")
+@Html.Raw("                            '&lt;td&gt;' + data[i].LastName + '&lt;/td&gt;&lt;/tr&gt;');")
 @Html.Raw("                }")
 @Html.Raw("            });")
 @Html.Raw("        });")
@@ -35,9 +32,9 @@
 &lt;body&gt;
     &lt;table class="table"&gt;
         &lt;thead&gt;&lt;tr&gt;
-            &lt;th&gt;ID&lt;/th&gt;&lt;th&gt;First Name&lt;/th&gt;
-            &lt;th&gt;Last Name&lt;/th&gt;&lt;th&gt;Position&lt;/th&gt;
-            &lt;th&gt;Salary&lt;/th&gt;&lt;th&gt;Date Terminated&lt;/th&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;First Name&lt;/th&gt;
+            &lt;th&gt;Last Name&lt;/th&gt;
         &lt;/tr&gt;&lt;/thead&gt;
         &lt;tbody id="datarows"&gt;&lt;/tbody&gt;
     &lt;/table&gt;
@@ -47,7 +44,7 @@
     </p>
     <p>The output would look something like this</p>
     <div class="table-responsive">
-        <iframe src="~/ScoobySample.html"  height="300"></iframe>
+        <iframe src="~/ScoobySample.html" height="300"></iframe>
     </div>
     <p>In addition to the method shown here, you can also query this dataset for specific matching records by including another parameter (partial text search term)</p>
     <p><em>var url = 'http://centriqdata.azurewebsites.net/data/scooby?search=' + searchTerm;</em></p>

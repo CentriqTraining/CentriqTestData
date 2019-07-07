@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -16,44 +18,31 @@ namespace WebRole1.Controllers
 {
     public class ToonsController : ApiController
     {
-        private TrainingDAtaEntities db = new TrainingDAtaEntities();
+        private List<ToonData> _Toons;
+        public ToonsController()
+        {
+            var location = HttpContext.Current.Server.MapPath("/Data");
+            var data = File.ReadAllText(Path.Combine(location, "Toons.json"));
+
+            _Toons = JsonConvert.DeserializeObject<IEnumerable<ToonData>>(data).ToList();
+        }
 
         // GET: api/Toons
         public IHttpActionResult GetToonDatas()
         {
-            return Ok( db.ToonDatas.ToList());
+            return Ok(_Toons);
         }
 
         // GET: api/Toons/5
-        public IHttpActionResult GetToonData(int page, int pageSize=25)
+        public IHttpActionResult GetToonData(int page, int pageSize = 25)
         {
             // paged version of the toons
-
-            var toonData = db.ToonDatas
-                .OrderBy(t => t.Studio)
-                .ThenBy(t => t.Show)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize).ToList() ;
-            if (toonData == null)
+            if (_Toons.Count > page * pageSize)
             {
                 return NotFound();
             }
 
-            return Ok(toonData);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool ToonDataExists(int id)
-        {
-            return db.ToonDatas.Count(e => e.ID == id) > 0;
+            return Ok(_Toons.Skip((page - 1) * pageSize).Take(pageSize));
         }
     }
 }

@@ -23,10 +23,7 @@
 @Html.Raw("                    $('#datarows').append('&lt;tr&gt;' +")
 @Html.Raw("                            '&lt;td&gt;' + data.items[i].ID + '&lt;/td&gt;' +")
 @Html.Raw("                            '&lt;td&gt;' + data.items[i].FirstName + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data.items[i].LastName + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data.items[i].Position + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data.items[i].Salary + '&lt;/td&gt;' +")
-@Html.Raw("                            '&lt;td&gt;' + data.items[i].TerminationDate + '&lt;/td&gt;&lt;/tr&gt;');")
+@Html.Raw("                            '&lt;td&gt;' + data.items[i].LastName + '&lt;/td&gt;&lt;/tr&gt;');")
 @Html.Raw("                }")
 @Html.Raw("            });")
 @Html.Raw("        });")
@@ -35,9 +32,9 @@
 &lt;body&gt;
     &lt;table class="table"&gt;
         &lt;thead&gt;&lt;tr&gt;
-            &lt;th&gt;ID&lt;/th&gt;&lt;th&gt;First Name&lt;/th&gt;
-            &lt;th&gt;Last Name&lt;/th&gt;&lt;th&gt;Position&lt;/th&gt;
-            &lt;th&gt;Salary&lt;/th&gt;&lt;th&gt;Date Terminated&lt;/th&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;First Name&lt;/th&gt;
+            &lt;th&gt;Last Name&lt;/th&gt;
         &lt;/tr&gt;&lt;/thead&gt;
         &lt;tbody id="datarows"&gt;&lt;/tbody&gt;
     &lt;/table&gt;
@@ -54,9 +51,6 @@
                     <th>ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Position</th>
-                    <th>Salary</th>
-                    <th>Date Terminated</th>
                 </tr>
             </thead>
             <tbody id="datarows"></tbody>
@@ -75,10 +69,7 @@
 @Html.Raw("                $('#datarows').append('&lt;tr&gt;' +")
 @Html.Raw("                        '&lt;td&gt;' + data.ID + '&lt;/td&gt;' +")
 @Html.Raw("                        '&lt;td&gt;' + data.FirstName + '&lt;/td&gt;' +")
-@Html.Raw("                        '&lt;td&gt;' + data.LastName + '&lt;/td&gt;' +")
-@Html.Raw("                        '&lt;td&gt;' + data.Position + '&lt;/td&gt;' +")
-@Html.Raw("                        '&lt;td&gt;' + data.Salary + '&lt;/td&gt;' +")
-@Html.Raw("                        '&lt;td&gt;' + data.TerminationDate + '&lt;/td&gt;&lt;/tr&gt;');")
+@Html.Raw("                        '&lt;td&gt;' + data.LastName + '&lt;/td&gt;&lt;/tr&gt;');")
 @Html.Raw("            });")
 @Html.Raw("        });")
 </pre>
@@ -98,17 +89,14 @@
 @section scripts {
     <script>
         $(function () {
-            var url = "https://centriqdata.azurewebsites.net/data/chuck";
+            var url = "../data/chuck";
             $.getJSON(url, function (data) {
-                for (var i = 0; i < data.items.length; i++) {
+                for (var i = 0; i < data.length; i++) {
                     $('#datarows').append(
                         "<tr>" +
-                        "<td>" + data.items[i].ID + "</td>" +
-                        "<td>" + data.items[i].FirstName + "</td>" +
-                        "<td>" + data.items[i].LastName + "</td>" +
-                        "<td>" + data.items[i].Position + "</td>" +
-                        "<td>" + data.items[i].Salary + "</td>" +
-                        "<td>" + data.items[i].TerminationDate + "</td>" +
+                        "<td>" + data[i].ID + "</td>" +
+                        "<td>" + data[i].FirstName + "</td>" +
+                        "<td>" + data[i].LastName + "</td>" +
                         "</tr>");
                 }
             });
