@@ -37,7 +37,7 @@ namespace WebRole1.Controllers
         public IHttpActionResult GetToonData(int page, int pageSize = 25)
         {
             // paged version of the toons
-            if (_Toons.Count > page * pageSize)
+            if (_Toons.Count < page * pageSize)
             {
                 return NotFound();
             }
